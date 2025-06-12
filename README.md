@@ -1,190 +1,227 @@
-# readme-template
-
 # Pharmacy-340B
 
 **Property of St. Luke's Health System – Internal Use Only**
 
-Pharmacy-340B is a secure, enterprise-grade web application developed for St. Luke’s Health System to support operations under the federal 340B Drug Pricing Program. The application modernizes outdated spreadsheet workflows and provides robust tools for drug data management, reporting, and compliance.
+Pharmacy-340B is a secure web application developed for St. Luke’s Health System to streamline drug classification, 340B pricing compliance, and pharmaceutical purchasing. It replaces manual spreadsheet workflows and integrates directly with SQL Server for robust backend processing.
+
+![image](https://github.com/user-attachments/assets/b663237f-6631-417f-9602-8e45f5b9387e)
 
 ---
 
-## Table of Contents
+## 📑 Table of Contents
 
-- [Overview](#overview)
-- [Features](#features)
-- [Architecture](#architecture)
-- [Tech Stack](#tech-stack)
-- [Authentication & Security](#authentication--security)
-- [Development Setup](#development-setup)
-- [Branching Strategy](#branching-strategy)
-- [Deployment](#deployment)
-- [Testing](#testing)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
-
----
-
-## Overview
-
-The 340B Drug Pricing Program allows eligible healthcare providers to purchase outpatient drugs at reduced prices. Pharmacy-340B helps manage data and workflows required to maintain program compliance and optimize pharmacy operations.
-
-This application supports:
-- Processing and validating external purchase data
-- Managing drug codes and pricing
-- Classifying pharmacy items for GL reporting
-- Generating regulatory and internal reports
-- Managing master reference data across entities
+- [Key Features and Functionality](#-key-features-and-functionality)
+- [Architecture and Tech Stack](#️-architecture-and-tech-stack)
+- [Deployed URLs](#-deployed-urls)
+- [Project Structure](#️-project-structure)
+- [Development Setup](#️-development-setup)
+- [Available Commands](#-available-commands)
+- [Testing](#-testing)
+- [Deployment](#-deployment)
+- [Branching Strategy](#-branching-strategy)
+- [Additional Resources](#-additional-resources)
+- [Contributing](#-contributing)
+- [License](#-license)
+- [Contact](#-contact)
 
 ---
 
-## Features
+## 📌 Key Features and Functionality
 
-- National Drug Code (NDC) tracking and management
-- General Ledger (GL) categorization of pharmaceuticals
-- Data import and mapping from various formats
-- Compliance and operational reporting
-- Support for multiple covered entities
-- Role-based access control
-- Azure Active Directory integration
-
----
-
-## Architecture
-
-**Frontend**
-- Built with React and TypeScript
-- UI components using React-Bootstrap
-- Data grids powered by ag-Grid
-- Client-side validation with Zod
-- Navigation via React Router
-- Notifications via react-hot-toast
-
-**Backend**
-- Node.js + Remix framework
-- SQL Server as the data source
-- Business logic in stored procedures
-- Validation and transformation of all inbound/outbound data
-
-**Data Flow**
-1. UI triggers fetchers or form actions
-2. Server routes invoke SQL stored procedures
-3. Validated results are returned to the frontend
-4. UI components update accordingly
+- 🔍 Manage National Drug Codes (NDCs), pricing, and classifications
+- 🧾 Map external data sources into internal structures
+- 📊 Generate financial and compliance reports
+- 🗃️ Maintain reference/master data (GL categories, pharmacy types)
+- 🧠 Role-based access control via Microsoft Azure AD
+- 💼 Business logic handled through SQL stored procedures
 
 ---
 
-## Tech Stack
+## ⚙️ Architecture and Tech Stack
 
-- React
-- TypeScript
-- Remix (Node.js)
-- SQL Server
-- Zod (validation)
-- React-Bootstrap
-- ag-Grid
-- Azure Active Directory (AAD)
-- npm
+| Layer         | Technology                                                                 |
+|--------------|------------------------------------------------------------------------------|
+| Frontend     | [React](https://reactjs.org), [TypeScript](https://www.typescriptlang.org), [React Router](https://reactrouter.com), [React-Bootstrap](https://react-bootstrap.github.io), [ag-Grid](https://www.ag-grid.com), [Zod](https://zod.dev), [react-hot-toast](https://react-hot-toast.com) |
+| Backend      | [Remix](https://remix.run), [Node.js](https://nodejs.org), [MSSQL (Node)](https://www.npmjs.com/package/mssql), [SQL Server](https://www.microsoft.com/en-us/sql-server) |
+| Authentication | [Azure Active Directory](https://learn.microsoft.com/en-us/azure/active-directory/) |
+| Design Principles | Server-side fetchers, Zod validation, modular components, strict auth, reusable UI |
 
 ---
 
-## Authentication & Security
+## 🌍 Deployed URLs
 
-Authentication is handled via Microsoft Azure Active Directory with silent login as the default, falling back to Microsoft’s login prompt. Access is role-based and session-driven. All protected routes are enforced at the server level.
-
-- AAD Group Mapping must be configured during app registration
-- All users must be employees with valid AAD accounts
-
----
-
-## Development Setup
-
-1. Clone the repository
-   ```
-   git clone https://github.com/stlukeshealth/pharmacy-340b.git
-   ```
-
-2. Install dependencies
-   ```
-   npm install
-   ```
-
-3. Set environment variables
-   Create a `.env` file based on `.env.example`.
-
-4. Run the development server
-   ```
-   npm run dev
-   ```
-
-5. Prisma (if applicable)
-   ```
-   npx prisma generate
-   ```
+| Environment | URL                                      |
+|-------------|-------------------------------------------|
+| 🧪 Dev       | https://pharmacy-340b-dev.azurewebsites.net       |
+| 🧫 Test   | https://pharmacy-340b-test.azurewebsites.net     |
+| ✅ Prod      | https://pharmacy340b.slhs.org             |
+| 📘 Docs      | https://confluence.slhs.org/pharmacy-340b |
 
 ---
 
-## Branching Strategy
+## 🗂️ Project Structure
 
-- `main`: Production-ready code
-- `dev`: Development and staging
-- `feature/*`: Feature-specific branches
-- `hotfix/*`: Emergency fixes to be merged into `main`
-
-Refer to `RELEASING.md` for the full release workflow.
-
----
-
-## Deployment
-
-Deployment pipelines are handled via [internal CI/CD tooling] and are triggered on pushes to the `main` branch. Ensure code is merged into `main` via pull requests with passing tests and review.
-
-- Environment variables are managed via a secure vault
-- Azure App Service or container-based deployment (depending on environment)
-
----
-
-## Testing
-
-- Unit testing with Vitest or Jest (TBD)
-- Integration tests planned
-- Manual QA required before promoting to `main`
-- Test coverage reports generated during CI
-
-Run tests locally:
+Below is an overview of the main directories and files:
 ```
-npm run test
+.
+├── .github/                   # GitHub workflows and configs
+├── .react-router/             # React Router specific configurations
+├── .vscode/                   # VS Code workspace settings
+├── app/                       # Core application logic
+│   ├── assets\images/         # Static image assets
+│   ├── auth/                  # Authentication logic (AAD)
+│   ├── core/                  # Business logic and core utilities
+│   ├── lib/                   # Shared helper functions/libraries
+│   ├── models/                # Data models and types
+│   ├── routes/                # Route handlers and loaders
+│   ├── styles/                # Global and component-level styles
+│   ├── validation/            # Zod schemas and input validation
+│   ├── entry.client.tsx       # Remix client entry point
+│   ├── entry.server.tsx       # Remix server entry point
+│   ├── menu-items.tsx         # Menu configuration
+│   ├── navigation-link.tsx    # Navigation link component
+│   ├── navigation.tsx         # Navigation UI component
+│   ├── root.tsx               # Root layout and route
+│   └── routes.ts              # Central route configuration
+├── build/                     # Build artifacts
+│   ├── client/                # Client build output
+│   └── server/                # Server build output
+├── docs/                      # Documentation
+├── mocks/                     # Mock APIs and test data
+├── node_modules/              # Installed dependencies
+├── playwright/                # End-to-end testing setup
+├── public/                    # Public static assets
+├── vitest/                    # Unit testing setup and config
+├── .dockerignore              # Docker ignore rules
+├── .env                       # Environment variables
+├── .env.example               # Example environment file
+├── .gitignore                 # Git ignore rules
+├── .npmrc                     # NPM configuration
+├── .nvmrc                     # Node version manager config
+├── .prettierignore            # Prettier ignore rules
+├── Dockerfile                 # Docker image configuration
+├── eslint.config.js           # ESLint configuration
+├── package-lock.json          # NPM lockfile
+├── package.json               # Project metadata and scripts
+├── playwright.config.ts       # Playwright test config
+├── react-router.config.ts     # App-level route config
+├── README.md                  # Project documentation
+├── RELEASING.md               # Release strategy and process
+├── renovate.json              # Dependency update automation config
+├── start.sh                   # Start script for local/dev environments
+├── TODO.txt                   # Task list / notes
+├── tsconfig.json              # TypeScript compiler configuration
+└── vite.config.ts             # Vite bundler configuration
+
+```
+---
+
+## 🛠️ Development Setup
+
+| Tool        | Version     |
+|-------------|-------------|
+| Node.js     | ≥ 20.0.0    |
+| npm         | ≥ 9.0.0     |
+| Git         | ≥ 2.32.0    |
+| VS Code     | ≥ 1.75.0    |
+
+```bash
+# Clone the repository
+git clone git@github.com:St-Lukes-Health-System/pharmacy-340b.git
+
+# Navigate into the repo
+cd pharmacy-340b
+
+# Checkout dev branch
+git checkout dev
+
+# Install dependencies
+npm install
+
+# (Optional) Generate Prisma client
+npx prisma generate
+
+# Start development server
+npm run dev
 ```
 
 ---
 
-## Contributing
+## 🚀 Available Commands
 
-Contributions are welcome by team members with access. All changes must be made through pull requests with:
-- Clear commit messages
-- Linked task/issue references
-- Code review by at least one other developer
-- Passing CI checks
-
-Style Guide:
-- Follow TypeScript best practices
-- Enforce schema validation on all input/output
-- Keep UI components reusable and modular
-
----
-
-## License
-
-This project is the property of **St. Luke’s Health System**.  
-Unauthorized distribution or use outside of SLHS is prohibited.
+| Command             | Description                                |
+|---------------------|--------------------------------------------|
+| `npm run dev`        | Start local dev server                     |
+| `npm run build`      | Build production bundle                    |
+| `npm run start`      | Start built production server              |
+| `npm run test`       | Run all unit tests                         |
+| `npm run lint`       | Lint all files                             |
+| `npm run lint:fix`   | Auto-fix linting issues                    |
+| `npm run format`     | Format code using Prettier                 |
 
 ---
 
-## Contact
+## 🧪 Testing
 
-For internal questions or support, please contact:
+- Unit testing via [Vitest](https://vitest.dev) or [Jest](https://jestjs.io)
+- Example:  
+  ```bash
+  npm run test
+  ```
+- Coverage reports and e2e automation integration pending
 
-- Pharmacy-340B Dev Team  
-- Email: pharmacy340b-dev@slhs.org  
-- Slack: #pharmacy340b-dev  
+---
 
+## 📦 Deployment
+
+- Managed via SLHS internal CI/CD pipelines
+- Push to `main` triggers production deployment
+- Push to `dev` triggers staging deployment
+- All secrets and configurations handled via secure vault
+
+---
+
+## 🌿 Branching Strategy
+
+| Branch       | Purpose                      |
+|--------------|------------------------------|
+| `main`       | Production-ready code        |
+| `dev`        | Development integration      |
+| `feature/*`  | New features and enhancements|
+| `hotfix/*`   | Emergency production patches |
+
+---
+
+## 📚 Additional Resources
+
+- [Confluence: Pharmacy-340B Documentation](https://confluence.slhs.org/pharmacy-340b)
+- [Azure AD Integration Guide](https://learn.microsoft.com/en-us/azure/active-directory/)
+- [Remix Deployment Reference](https://remix.run/docs/en/main/pages/deployment)
+- [ag-Grid React Guide](https://www.ag-grid.com/react-data-grid/)
+
+---
+
+## 🤝 Contributing
+
+Only authorized developers from St. Luke’s may contribute.  
+Please ensure all PRs follow these conventions:
+
+- Use consistent commit formats (e.g., Conventional Commits)
+- All forms and routes must be validated with Zod
+- Ensure test coverage before requesting review
+- Provide clear change logs and references to tickets/issues
+
+---
+
+## 🔒 License
+
+This project is proprietary software owned by **St. Luke’s Health System**.  
+All rights reserved. Unauthorized use or distribution is strictly prohibited.
+
+---
+
+## 📞 Contact
+
+- Gary Beers: beersg@slhs.org
+- Justin Hall: halljus@slhs.org
+- Justin Hamilton: hamiltju@slhs.org
