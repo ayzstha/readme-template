@@ -8,7 +8,8 @@ Pharmacy-340B is a secure web application developed for St. Luke’s Health Syst
 
 ---
 
-## 📑 Table of Contents
+<details>
+  <summary>📑 Table of Contents</summary>
 
 - [Key Features and Functionality](#-key-features-and-functionality)
 - [Architecture and Tech Stack](#️-architecture-and-tech-stack)
@@ -23,6 +24,9 @@ Pharmacy-340B is a secure web application developed for St. Luke’s Health Syst
 - [Contributing](#-contributing)
 - [License](#-license)
 - [Contact](#-contact)
+
+</details>
+
 
 ---
 
