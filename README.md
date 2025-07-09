@@ -13,7 +13,6 @@ Pharmacy-340B is a secure web application developed for St. Luke’s Health Syst
 - [Key Features and Functionality](#-key-features-and-functionality)
 - [Architecture and Tech Stack](#️-architecture-and-tech-stack)
 - [Deployed URLs](#-deployed-urls)
-- [Project Structure](#️-project-structure)
 - [Development Setup](#️-development-setup)
 - [Available Commands](#-available-commands)
 - [Testing](#-testing)
@@ -41,10 +40,10 @@ Pharmacy-340B is a secure web application developed for St. Luke’s Health Syst
 
 | Layer         | Technology                                                                 |
 |--------------|------------------------------------------------------------------------------|
-| Frontend     | [React](https://reactjs.org), [TypeScript](https://www.typescriptlang.org), [React Router](https://reactrouter.com), [React-Bootstrap](https://react-bootstrap.github.io), [ag-Grid](https://www.ag-grid.com), [Zod](https://zod.dev), [react-hot-toast](https://react-hot-toast.com) |
+| Frontend     | [React](https://reactjs.org), [TypeScript](https://www.typescriptlang.org), [React Router](https://reactrouter.com), [React-Bootstrap](https://react-bootstrap.github.io), [ag-Grid](https://www.ag-grid.com)
 | Backend      | [Remix](https://remix.run), [Node.js](https://nodejs.org), [MSSQL (Node)](https://www.npmjs.com/package/mssql), [SQL Server](https://www.microsoft.com/en-us/sql-server) |
 | Authentication | [Azure Active Directory](https://learn.microsoft.com/en-us/azure/active-directory/) |
-| Design Principles | Server-side fetchers, Zod validation, modular components, strict auth, reusable UI |
+
 
 ---
 
@@ -55,75 +54,10 @@ Pharmacy-340B is a secure web application developed for St. Luke’s Health Syst
 | 🧪 Dev       | https://pharmacy-340b-dev.azurewebsites.net       |
 | 🧫 Test   | https://pharmacy-340b-test.azurewebsites.net     |
 | ✅ Prod      | https://pharmacy340b.slhs.org             |
-| 📘 Docs      | https://confluence.slhs.org/pharmacy-340b |
 
----
-
-## 🗂️ Project Structure
-
-Below is an overview of the main directories and files:
-```
-.
-├── .github/                   # GitHub workflows and configs
-├── .react-router/             # React Router specific configurations
-├── .vscode/                   # VS Code workspace settings
-├── app/                       # Core application logic
-│   ├── assets\images/         # Static image assets
-│   ├── auth/                  # Authentication logic (AAD)
-│   ├── core/                  # Business logic and core utilities
-│   ├── lib/                   # Shared helper functions/libraries
-│   ├── models/                # Data models and types
-│   ├── routes/                # Route handlers and loaders
-│   ├── styles/                # Global and component-level styles
-│   ├── validation/            # Zod schemas and input validation
-│   ├── entry.client.tsx       # Remix client entry point
-│   ├── entry.server.tsx       # Remix server entry point
-│   ├── menu-items.tsx         # Menu configuration
-│   ├── navigation-link.tsx    # Navigation link component
-│   ├── navigation.tsx         # Navigation UI component
-│   ├── root.tsx               # Root layout and route
-│   └── routes.ts              # Central route configuration
-├── build/                     # Build artifacts
-│   ├── client/                # Client build output
-│   └── server/                # Server build output
-├── docs/                      # Documentation
-├── mocks/                     # Mock APIs and test data
-├── node_modules/              # Installed dependencies
-├── playwright/                # End-to-end testing setup
-├── public/                    # Public static assets
-├── vitest/                    # Unit testing setup and config
-├── .dockerignore              # Docker ignore rules
-├── .env                       # Environment variables
-├── .env.example               # Example environment file
-├── .gitignore                 # Git ignore rules
-├── .npmrc                     # NPM configuration
-├── .nvmrc                     # Node version manager config
-├── .prettierignore            # Prettier ignore rules
-├── Dockerfile                 # Docker image configuration
-├── eslint.config.js           # ESLint configuration
-├── package-lock.json          # NPM lockfile
-├── package.json               # Project metadata and scripts
-├── playwright.config.ts       # Playwright test config
-├── react-router.config.ts     # App-level route config
-├── README.md                  # Project documentation
-├── RELEASING.md               # Release strategy and process
-├── renovate.json              # Dependency update automation config
-├── start.sh                   # Start script for local/dev environments
-├── TODO.txt                   # Task list / notes
-├── tsconfig.json              # TypeScript compiler configuration
-└── vite.config.ts             # Vite bundler configuration
-
-```
 ---
 
 ## 🛠️ Development Setup
-
-| Tool        | Version     |
-|-------------|-------------|
-| Node.js     | ≥ 20.0.0    |
-| npm         | ≥ 9.0.0     |
-| Git         | ≥ 2.32.0    |
-| VS Code     | ≥ 1.75.0    |
 
 ```bash
 # Clone the repository
