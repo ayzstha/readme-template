@@ -1,10 +1,10 @@
-# Pharmacy-340B
+# {{ PROJECT NAME }}
 
 **Property of St. Luke's Health System – Internal Use Only**
 
-Pharmacy-340B is a secure web application developed for St. Luke’s Health System to streamline drug classification, 340B pricing compliance, and pharmaceutical purchasing. It replaces manual spreadsheet workflows and integrates directly with SQL Server for robust backend processing.
+{{ PROJECT NAME }} is a secure web application developed for St. Luke's Health System to streamline {{ SHORT PROJECT DESCRIPTION }}.
 
-![image](https://github.com/user-attachments/assets/b663237f-6631-417f-9602-8e45f5b9387e)
+{{ APP IMAGE }})
 
 ---
 
@@ -27,12 +27,11 @@ Pharmacy-340B is a secure web application developed for St. Luke’s Health Syst
 
 ## 📌 Key Features and Functionality
 
-- 🔍 Manage National Drug Codes (NDCs), pricing, and classifications
-- 🧾 Map external data sources into internal structures
-- 📊 Generate financial and compliance reports
-- 🗃️ Maintain reference/master data (GL categories, pharmacy types)
-- 🧠 Role-based access control via Microsoft Azure AD
-- 💼 Business logic handled through SQL stored procedures
+- {{ KEY FEATURE 1 }}
+- {{ KEY FEATURE 2 }}
+- {{ KEY FEATURE 3 }}
+- {{ KEY FEATURE 4 }}
+- {{ KEY FEATURE 5 }}
 
 ---
 
@@ -40,31 +39,30 @@ Pharmacy-340B is a secure web application developed for St. Luke’s Health Syst
 
 | Layer         | Technology                                                                 |
 |--------------|------------------------------------------------------------------------------|
-| Frontend     | [React](https://reactjs.org), [TypeScript](https://www.typescriptlang.org), [React Router](https://reactrouter.com), [React-Bootstrap](https://react-bootstrap.github.io), [ag-Grid](https://www.ag-grid.com)
-| Backend      | [Remix](https://remix.run), [Node.js](https://nodejs.org), [MSSQL (Node)](https://www.npmjs.com/package/mssql), [SQL Server](https://www.microsoft.com/en-us/sql-server) |
-| Authentication | [Azure Active Directory](https://learn.microsoft.com/en-us/azure/active-directory/) |
-
+| Frontend     | [React](https://reactjs.org), [TypeScript](https://www.typescriptlang.org), [React Router](https://reactrouter.com), [React-Bootstrap](https://react-bootstrap.github.io), {{ OTHER FRONTEND TOOLS }}  |
+| Backend      | [Remix](https://remix.run), [Node.js](https://nodejs.org), {{ OTHER BACKEND TOOLS }}|
+| Authentication | [Azure Active Directory](https://learn.microsoft.com/en-us/azure/active-directory/), {{ OTHER AUTHENTICATION TOOLS }} |
 
 ---
 
 ## 🌍 Deployed URLs
 
-| Environment | URL                                      |
-|-------------|-------------------------------------------|
-| 🧪 Dev       | https://pharmacy-340b-dev.azurewebsites.net       |
-| 🧫 Test   | https://pharmacy-340b-test.azurewebsites.net     |
-| ✅ Prod      | https://pharmacy340b.slhs.org             |
+| Environment | URL              |
+|-------------|------------------|
+| 🧪 Dev       | {{ DEV_URL }}     |
+| 🧫 Test      | {{ TEST_URL }}    |
+| ✅ Prod      | {{ PROD_URL }}    |
 
 ---
 
 ## 🛠️ Development Setup
 
-```bash
+```
 # Clone the repository
-git clone git@github.com:St-Lukes-Health-System/pharmacy-340b.git
+git clone {{ GIT_REPO_URL }}
 
 # Navigate into the repo
-cd pharmacy-340b
+cd {{ PROJECT_FOLDER_NAME }}
 
 # Checkout dev branch
 git checkout dev
@@ -97,21 +95,21 @@ npm run dev
 
 ## 🧪 Testing
 
-- Unit testing via [Vitest](https://vitest.dev) or [Jest](https://jestjs.io)
-- Example:  
-  ```bash
+- Unit testing via [Vitest](https://vitest.dev) or [Jest](https://jestjs.io)  
+- Example:
+  ```
   npm run test
   ```
-- Coverage reports and e2e automation integration pending
+- Coverage reports and e2e automation integration {{ TESTING STATUS }}
 
 ---
 
 ## 📦 Deployment
 
-- Managed via SLHS internal CI/CD pipelines
-- Push to `main` triggers production deployment
-- Push to `dev` triggers staging deployment
-- All secrets and configurations handled via secure vault
+- Managed via {{ CI/CD TOOL }}  
+- Push to `main` triggers production deployment  
+- Push to `dev` triggers staging deployment  
+- Secrets/configs handled via {{ SECRETS MANAGEMENT METHOD }}
 
 ---
 
@@ -120,42 +118,42 @@ npm run dev
 | Branch       | Purpose                      |
 |--------------|------------------------------|
 | `main`       | Production-ready code        |
-| `dev`        | Development integration      |
-| `feature/*`  | New features and enhancements|
-| `hotfix/*`   | Emergency production patches |
+| `{{ OTHER BRANCH }}`        | {{ OTHER BRANCH DESCRIPTION}}      |
+| `{{ OTHER BRANCH }}`  | {{ OTHER BRANCH DESCRIPTION}}|
+| `{{ OTHER BRANCH }}`   | {{ OTHER BRANCH DESCRIPTION}}|
 
 ---
 
 ## 📚 Additional Resources
 
-- [Confluence: Pharmacy-340B Documentation](https://confluence.slhs.org/pharmacy-340b)
-- [Azure AD Integration Guide](https://learn.microsoft.com/en-us/azure/active-directory/)
-- [Remix Deployment Reference](https://remix.run/docs/en/main/pages/deployment)
-- [ag-Grid React Guide](https://www.ag-grid.com/react-data-grid/)
+- [Documentation Wiki]({{ DOCS_LINK }})  
+- [Authentication Integration Guide]({{ AUTH_GUIDE_LINK }})  
+- [Deployment Reference]({{ DEPLOYMENT_GUIDE_LINK }})  
+- [Frontend Component Guide]({{ COMPONENT_GUIDE_LINK }})
 
 ---
 
 ## 🤝 Contributing
 
-Only authorized developers from St. Luke’s may contribute.  
+Only authorized developers from **St. Luke's Health System** may contribute.  
 Please ensure all PRs follow these conventions:
 
-- Use consistent commit formats (e.g., Conventional Commits)
-- All forms and routes must be validated with Zod
-- Ensure test coverage before requesting review
-- Provide clear change logs and references to tickets/issues
+- Use consistent commit formats (e.g., Conventional Commits)  
+- All forms and routes must be validated (e.g., Zod or equivalent)  
+- Ensure test coverage before requesting review  
+- Provide clear changelogs and references to tickets/issues  
 
 ---
 
 ## 🔒 License
 
-This project is proprietary software owned by **St. Luke’s Health System**.  
+This project is proprietary software owned by **St. Luke's Health System**.  
 All rights reserved. Unauthorized use or distribution is strictly prohibited.
 
 ---
 
 ## 📞 Contact
 
-- Gary Beers: beersg@slhs.org
-- Justin Hall: halljus@slhs.org
-- Justin Hamilton: hamiltju@slhs.org
+- {{ NAME 1 }}: {{ EMAIL 1 }}  
+- {{ NAME 2 }}: {{ EMAIL 2 }}  
+- {{ NAME 3 }}: {{ EMAIL 3 }}
