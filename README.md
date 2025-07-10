@@ -2,7 +2,8 @@
 
 **Property of St. Luke's Health System – Internal Use Only**
 
-{{ PROJECT NAME }} is a secure web application developed for St. Luke's Health System to streamline {{ SHORT PROJECT DESCRIPTION }}.
+{{ PROJECT NAME }} is a secure web application developed for St. Luke's Health System to streamline
+{{ SHORT PROJECT DESCRIPTION }}.
 
 {{ APP IMAGE }})
 
@@ -37,21 +38,21 @@
 
 ## ⚙️ Architecture and Tech Stack
 
-| Layer         | Technology                                                                 |
-|--------------|------------------------------------------------------------------------------|
-| Frontend     | [React](https://reactjs.org), [TypeScript](https://www.typescriptlang.org), [React Router](https://reactrouter.com), [React-Bootstrap](https://react-bootstrap.github.io), {{ OTHER FRONTEND TOOLS }}  |
-| Backend      | [Remix](https://remix.run), [Node.js](https://nodejs.org), {{ OTHER BACKEND TOOLS }}|
-| Authentication | [Azure Active Directory](https://learn.microsoft.com/en-us/azure/active-directory/), {{ OTHER AUTHENTICATION TOOLS }} |
+| Layer          | Technology                                                                                                                                                                              |
+| -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Frontend       | [React](https://react.dev/), [TypeScript](https://www.typescriptlang.org), [React Router](https://reactrouter.com), [Tailwind CSS](https://tailwindcss.com), {{ OTHER FRONTEND TOOLS }} |
+| Backend        | [Node.js](https://nodejs.org), {{ OTHER BACKEND TOOLS }}                                                                                                                                |
+| Authentication | [Okta](https://okta.com), {{ OTHER AUTHENTICATION TOOLS }}                                                                                                                              |
 
 ---
 
 ## 🌍 Deployed URLs
 
-| Environment | URL              |
-|-------------|------------------|
-| 🧪 Dev       | {{ DEV_URL }}     |
-| 🧫 Test      | {{ TEST_URL }}    |
-| ✅ Prod      | {{ PROD_URL }}    |
+| Environment | URL            |
+| ----------- | -------------- |
+| 🧪 Dev      | {{ DEV_URL }}  |
+| 🧫 Test     | {{ TEST_URL }} |
+| ✅ Prod     | {{ PROD_URL }} |
 
 ---
 
@@ -63,9 +64,6 @@ git clone {{ GIT_REPO_URL }}
 
 # Navigate into the repo
 cd {{ PROJECT_FOLDER_NAME }}
-
-# Checkout dev branch
-git checkout dev
 
 # Install dependencies
 npm install
@@ -81,55 +79,53 @@ npm run dev
 
 ## 🚀 Available Commands
 
-| Command             | Description                                |
-|---------------------|--------------------------------------------|
-| `npm run dev`        | Start local dev server                     |
-| `npm run build`      | Build production bundle                    |
-| `npm run start`      | Start built production server              |
-| `npm run test`       | Run all unit tests                         |
-| `npm run lint`       | Lint all files                             |
-| `npm run lint:fix`   | Auto-fix linting issues                    |
-| `npm run format`     | Format code using Prettier                 |
+| Command          | Description                   |
+| ---------------- | ----------------------------- |
+| `npm run dev`    | Start local dev server        |
+| `npm run build`  | Build production bundle       |
+| `npm run start`  | Start built production server |
+| `npm run test`   | Run all unit tests            |
+| `npm run lint`   | Lint all files                |
+| `npm run format` | Format code using Prettier    |
 
 ---
 
 ## 🧪 Testing
 
-- Unit testing via [Vitest](https://vitest.dev) or [Jest](https://jestjs.io)  
+- Unit testing via [Vitest](https://vitest.dev)
 - Example:
   ```
   npm run test
   ```
-- Coverage reports and e2e automation integration {{ TESTING STATUS }}
+- Integration/E2E testing via [Playwright](https://playwright.dev)
 
 ---
 
 ## 📦 Deployment
 
-- Managed via {{ CI/CD TOOL }}  
-- Push to `main` triggers production deployment  
-- Push to `dev` triggers staging deployment  
-- Secrets/configs handled via {{ SECRETS MANAGEMENT METHOD }}
+- Managed via Github Actions
+- Secrets/configuration handled via environment-specific methods:
+  - Build-time secrets: GitHub repository secrets
+  - Runtime secrets (deployed): Azure environment variables
+  - Runtime secrets (local development): `.env` file
 
 ---
 
 ## 🌿 Branching Strategy
 
-| Branch       | Purpose                      |
-|--------------|------------------------------|
-| `main`       | Production-ready code        |
-| `{{ OTHER BRANCH }}`        | {{ OTHER BRANCH DESCRIPTION}}      |
-| `{{ OTHER BRANCH }}`  | {{ OTHER BRANCH DESCRIPTION}}|
-| `{{ OTHER BRANCH }}`   | {{ OTHER BRANCH DESCRIPTION}}|
+| Branch               | Purpose                                |
+| -------------------- | -------------------------------------- |
+| `main`               | Deploys to the development environment |
+| `release-X.Y`        | Deploys to the test environment        |
+| `X.Y.Z` tag          | Deploys to production                  |
+| `{{ OTHER BRANCH }}` | {{ OTHER BRANCH DESCRIPTION}}          |
 
 ---
 
 ## 📚 Additional Resources
 
-- [Documentation Wiki]({{ DOCS_LINK }})  
-- [Authentication Integration Guide]({{ AUTH_GUIDE_LINK }})  
-- [Deployment Reference]({{ DEPLOYMENT_GUIDE_LINK }})  
-- [Frontend Component Guide]({{ COMPONENT_GUIDE_LINK }})
+- [{{RESOURCE 1}}]({{ RESOURCE LINK }})
+- {{ADDITIONAL RESOURCES}}
 
 ---
 
@@ -138,10 +134,8 @@ npm run dev
 Only authorized developers from **St. Luke's Health System** may contribute.  
 Please ensure all PRs follow these conventions:
 
-- Use consistent commit formats (e.g., Conventional Commits)  
-- All forms and routes must be validated (e.g., Zod or equivalent)  
-- Ensure test coverage before requesting review  
-- Provide clear changelogs and references to tickets/issues  
+- All forms and routes must be validated (e.g., Zod or equivalent)
+- Use clear PR titles and descriptions
 
 ---
 
@@ -154,6 +148,6 @@ All rights reserved. Unauthorized use or distribution is strictly prohibited.
 
 ## 📞 Contact
 
-- {{ NAME 1 }}: {{ EMAIL 1 }}  
-- {{ NAME 2 }}: {{ EMAIL 2 }}  
+- {{ NAME 1 }}: {{ EMAIL 1 }}
+- {{ NAME 2 }}: {{ EMAIL 2 }}
 - {{ NAME 3 }}: {{ EMAIL 3 }}
